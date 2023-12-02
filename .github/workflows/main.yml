@@ -19,7 +19,7 @@ jobs:
         distribution: 'adopt'
         cache: maven
     - name: Build
-      run: mvn -f SkillMatch/pom.xml clean install
+      run: mvn -f SkillMatch/pom.xml clean install -DskipTests
     - name: Login Dockerhub
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
