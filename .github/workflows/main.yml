@@ -18,6 +18,8 @@ jobs:
         java-version: '17'
         distribution: 'adopt'
         cache: maven
+    - name: Build
+      run: mvn -f SkillMatch/pom.xml clean install
     - name: Login Dockerhub
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
@@ -25,6 +27,6 @@ jobs:
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       
     - name: Build the Docker image
-      run: docker build -t tayadeabhilash/skillmatch .
+      run: docker build -t tayadeabhilash/skillmatch ./SkillMatch
     - name: Push to Dockerhub
       run: docker push tayadeabhilash/skillmatch:latest
