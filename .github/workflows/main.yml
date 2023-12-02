@@ -19,6 +19,6 @@ jobs:
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       
     - name: Build the Docker image
-      run: docker build -t tayadeabhilash/skillmatch .
+      run: docker build -t tayadeabhilash/skillmatch ./SkillMatch
     - name: Push to Dockerhub
       run: docker push tayadeabhilash/skillmatch:latest
